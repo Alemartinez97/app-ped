@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, Dimensions, Image } from "react-native";
+import { View, Text, StyleSheet, Dimensions, Image, Pressable } from "react-native";
 
 export const SLIDER_WIDTH = Dimensions.get('window').width + 80;
 export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.7);
@@ -11,6 +11,13 @@ const CarouselCardItem = ({ item, index }) => {
         source={{ uri: item.imgUrl }}
         style={styles.image}
       />
+       <Pressable
+          style={styles.buttom}
+          // onPress={onPressLearnMore}
+          accessibilityLabel="Learn more about this purple button"
+        >
+          <Text>{'>'}</Text>
+        </Pressable>
       <Text style={styles.header}>{item.title}</Text>
       <Text style={styles.body}>{item.body}</Text>
     </View>
@@ -49,6 +56,16 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingLeft: 20,
     paddingRight: 20
+  },
+  buttom: {
+    width: '8%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 4,
+    backgroundColor: '#efb810',
+    margin: 270,
+    marginRight: 100,
+    position: 'absolute'
   }
 })
 

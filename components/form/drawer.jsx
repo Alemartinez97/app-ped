@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Pressable } from "react-native";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { Appbar, Searchbar } from "react-native-paper";
-import { Platform } from "react-native";
+import { Appbar } from "react-native-paper";
 import Schedule from "./schedule";
-// import instance from "../utils/http";
-// import Card from "./card";
-// import Dialog from "./search";
 const styles = StyleSheet.create({
   header: {
     display: 'flex',
@@ -48,7 +44,7 @@ const Drawer = ({ navigation }) => {
         <MaterialCommunityIcons name="calendar-month" color={'#efb810'} size={36} />
         <Text style={styles.text} >Benvenuto in GIF</Text>
         <Text style={styles.text} >Con quest'App prenotare le tue attivita{"\n"} preferite e tanto altro ancora</Text>
-        <Schedule/>
+        {/* <Schedule/> */}
         <Pressable
           style={styles.buttom}
           // onPress={onPressLearnMore}
