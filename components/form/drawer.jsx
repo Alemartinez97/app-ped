@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, Text, View, Pressable } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Appbar } from "react-native-paper";
-import Schedule from "./schedule";
 const styles = StyleSheet.create({
   header: {
     display: 'flex',
@@ -32,8 +32,9 @@ const styles = StyleSheet.create({
     margin: 10
   }
 });
-const Drawer = ({ navigation }) => {
-  const [data, setData] = useState();
+const Drawer = () => {
+  const navigation = useNavigation();
+
   return (
     <View >
       <Appbar.Header style={styles.header}>
@@ -44,10 +45,10 @@ const Drawer = ({ navigation }) => {
         <MaterialCommunityIcons name="calendar-month" color={'#efb810'} size={36} />
         <Text style={styles.text} >Benvenuto in GIF</Text>
         <Text style={styles.text} >Con quest'App prenotare le tue attivita{"\n"} preferite e tanto altro ancora</Text>
-        {/* <Schedule/> */}
+
         <Pressable
           style={styles.buttom}
-          // onPress={onPressLearnMore}
+          onPress={()=> navigation.navigate("schedule")}
           accessibilityLabel="Learn more about this purple button"
         >
           <Text>ENTRA IN GETFIT</Text>

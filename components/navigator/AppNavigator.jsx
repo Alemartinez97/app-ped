@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Home from '../home/home';
+import Schedule from '../form/schedule';
 
 function HomeScreen() {
   return (
@@ -64,9 +66,22 @@ function MyTabs() {
 }
 
 export default function AppNavigator() {
+  const Stack = createStackNavigator();
+
   return (
     <NavigationContainer>
-      <MyTabs />
+      <Stack.Navigator  screenOptions={{
+        headerBackground: () => <View style={{flex: 1, backgroundColor: 'blue'}} />,
+        backgroundColor: 'blue'
+      }}>
+      <Stack.Screen options={{ headerShown: false }} name="home" component={MyTabs} />
+        <Stack.Screen name="schedule" options={{
+          stackBarStyle: {
+            backgroundColor: 'orange',
+          },
+        }}component={Schedule} />
+      </Stack.Navigator>
+      {/* <MyTabs /> */}
     </NavigationContainer>
   );
 }
